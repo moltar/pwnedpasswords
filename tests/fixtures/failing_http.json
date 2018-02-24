@@ -1,0 +1,40 @@
+[
+    {
+        "scope": "https://api.pwnedpasswords.com:443",
+        "method": "GET",
+        "path": "/range/5baa6",
+        "body": "",
+        "status": 500,
+        "response": "﻿total fail",
+        "rawHeaders": [
+            "Date",
+            "Fri, 23 Feb 2018 04:54:15 GMT",
+            "Content-Type",
+            "text/plain; charset=utf-8",
+            "Transfer-Encoding",
+            "chunked",
+            "Connection",
+            "close",
+            "Cache-Control",
+            "public, max-age=2678400",
+            "Vary",
+            "Accept-Encoding",
+            "Arr-Disable-Session-Affinity",
+            "True",
+            "X-Powered-By",
+            "ASP.NET",
+            "CF-Cache-Status",
+            "HIT",
+            "Expires",
+            "Mon, 26 Mar 2018 04:54:15 GMT",
+            "Strict-Transport-Security",
+            "max-age=31536000; includeSubDomains; preload",
+            "X-Content-Type-Options",
+            "nosniff",
+            "Expect-CT",
+            "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+            "Server",
+            "cloudflare"
+        ]
+    }
+]
