@@ -2,7 +2,7 @@
 
 [![Travis](https://travis-ci.org/moltar/pwnedpasswords.svg?branch=master)]()
 [![npm](https://img.shields.io/npm/dm/pwnedpasswords)]()
-[![Known Vulnerabilities](https://snyk.io/test/npm/pwnedpasswords/badge.svg?style=flat-square&maxAge=2592000)](https://snyk.io/test/npm/pwnedpasswords)
+[![Known Vulnerabilities](https://snyk.io/test/npm/pwnedpasswords/badge.svg)](https://snyk.io/test/npm/pwnedpasswords)
 
 A dependency-free wrapper for [PwnedPasswords API](https://haveibeenpwned.com/API/v2#PwnedPasswords) by [Troy Hunt](https://www.troyhunt.com/) ([haveibeenpwned.com](https://haveibeenpwned.com/)).
 
