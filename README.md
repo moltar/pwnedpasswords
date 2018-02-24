@@ -1,6 +1,6 @@
 # NPM pwnedpasswords
 
-[![Travis](https://img.shields.io/travis/moltar/pwnedpasswords)]()
+[![Travis](https://travis-ci.org/moltar/pwnedpasswords.svg?branch=master)]()
 [![npm](https://img.shields.io/npm/dm/pwnedpasswords)]()
 [![Known Vulnerabilities](https://snyk.io/test/npm/pwnedpasswords/badge.svg?style=flat-square&maxAge=2592000)](https://snyk.io/test/npm/pwnedpasswords)
 
@@ -50,7 +50,7 @@ pwnedpasswords('password', (err, count) => {
   if (err) {
   	console.error(err)
   }
-  
+
   console.log('Password was found %d times.', count)
 });
 ```
