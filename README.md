@@ -48,23 +48,23 @@ const pwnedpasswords = require('pwnedpasswords')
 
 pwnedpasswords('password', (err, count) => {
   if (err) {
-  	console.error(err)
+    console.error(err)
   }
 
   console.log('Password was found %d times.', count)
-});
+})
 ```
 
 ### CLI
 
-It is not recommended to use this with real passwords, as you are exposing the password to the process list and shell history. But this can be used for testing and educational scenarios or in other shell scripts.
+It is not recommended to use this command with real passwords, as you are exposing the password to the process list and shell history. But this can be used for testing and educational scenarios or in other shell scripts.
 
 ```sh
 $> ./node_modules/.bin/pwnedpasswords password
 3303003
 ```
 
-Or if you installed it globally, then you can run:
+Or if installed globally, then run:
 
 ```sh
 $> /usr/local/bin/pwnedpasswords password
