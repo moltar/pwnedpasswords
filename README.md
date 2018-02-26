@@ -26,6 +26,8 @@ npm install --save-exact pwnedpasswords
 
 The module implements three interfaces. Callback, promises and CLI.
 
+Return value is an integer with a count of input password prevalence.
+
 ### Promises
 
 ```js
