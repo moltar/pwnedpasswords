@@ -28,6 +28,8 @@ The module implements three interfaces. Callback, promises and CLI.
 
 Return value is an integer with a count of input password prevalence.
 
+Zero (`0`) is returned when the password is not found.
+
 ### Promises
 
 ```js
