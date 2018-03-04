@@ -27,22 +27,22 @@ function pwnedpasswords (password, cb) {
   const hashedPasswordSuffix = hashedPassword.substr(PREFIX_LENGTH)
 
   return get(hashedPasswordPrefix)
-    .then(res => {
+    .then((res) => {
       const found = res
         .split('\n')
         .map(line => line.split(':'))
-        .filter(res => res[0].toLowerCase() === hashedPasswordSuffix)
-        .map(res => parseInt(res[1]))
+        .filter(filtered => filtered[0].toLowerCase() === hashedPasswordSuffix)
+        .map(mapped => Number(mapped[1]))
         .shift() || 0
 
       return hasCallback ? cb(null, found) : found
     })
-    .catch(err => {
+    .catch((err) => {
       if (hasCallback) {
         return cb(err)
-      } else {
-        throw err
       }
+
+      throw err
     })
 }
 
@@ -59,7 +59,7 @@ function get (hashedPasswordPrefix) {
 
       // According to API spec, 404 is returned when no hash found, so it is a valid response.
       if (res.statusCode !== HTTP_STATUS_OK && res.statusCode !== HTTP_STATUS_NOT_FOUND) {
-        return reject(new Error('Failed to load pwnedpasswords API: ' + res.statusCode))
+        return reject(new Error(`Failed to load pwnedpasswords API: ${res.statusCode}`))
       }
 
       res.on('data', (chunk) => {
@@ -69,6 +69,8 @@ function get (hashedPasswordPrefix) {
       res.on('end', () => {
         resolve(data)
       })
+
+      return true
     }).on('error', (err) => {
       reject(err)
     })
@@ -76,7 +78,9 @@ function get (hashedPasswordPrefix) {
 }
 
 if (require.main === module) {
-  pwnedpasswords(process.argv[2], function (err, res) {
+  pwnedpasswords(process.argv[2], (err, res) => {
+    /* eslint no-console: [ "error", { allow: ["log", "error"] } ] */
+
     if (err) {
       console.error(err)
       process.exit(1)
