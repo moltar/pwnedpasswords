@@ -9,55 +9,45 @@ nockBack.setMode('lockdown')
 /* global describe, it */
 describe('pwnedpasswords', () => {
   describe('promise', () => {
-    it('rejects without a password', () => {
-      return pwnedpasswords()
-        .then()
-        .catch(err => {
-          assert.equal(err, 'Error: Input password must be a string.')
-        })
-    })
+    it('rejects without a password', () => pwnedpasswords()
+      .then()
+      .catch((err) => {
+        assert.equal(err, 'Error: Input password must be a string.')
+      }))
 
-    it('rejects with a `null` password', () => {
-      return pwnedpasswords(null)
-        .then()
-        .catch(err => {
-          assert.equal(err, 'Error: Input password must be a string.')
-        })
-    })
+    it('rejects with a `null` password', () => pwnedpasswords(null)
+      .then()
+      .catch((err) => {
+        assert.equal(err, 'Error: Input password must be a string.')
+      }))
 
     it('returns correct count for a known password', (done) => {
-      nockBack('known_password.json', (nockDone) => {
-        return pwnedpasswords('password')
-          .then(count => {
-            assert.equal(count, 3303003)
-            done()
-            nockDone()
-          })
-      })
+      nockBack('known_password.json', nockDone => pwnedpasswords('password')
+        .then((count) => {
+          assert.equal(count, 3303003)
+          done()
+          nockDone()
+        }))
     })
 
     it('returns zero for an unknown password', (done) => {
-      nockBack('unknown_password.json', (nockDone) => {
-        return pwnedpasswords('+p5MZhunXrYWF?E&g&X8gxxMhwQsrNzqUS92tSZb=Q?4zgB$')
-          .then(count => {
-            assert.equal(count, 0)
-            done()
-            nockDone()
-          })
-      })
+      nockBack('unknown_password.json', nockDone => pwnedpasswords('+p5MZhunXrYWF?E&g&X8gxxMhwQsrNzqUS92tSZb=Q?4zgB$')
+        .then((count) => {
+          assert.equal(count, 0)
+          done()
+          nockDone()
+        }))
     })
 
     it('rejects when HTTP error occurs', (done) => {
-      nockBack('failing_http.json', (nockDone) => {
-        return pwnedpasswords('password')
-          .then(count => {
-          })
-          .catch(err => {
-            assert.equal(err, 'Error: Failed to load pwnedpasswords API: 500')
-            done()
-            nockDone()
-          })
-      })
+      nockBack('failing_http.json', nockDone => pwnedpasswords('password')
+        .then((count) => {
+        })
+        .catch((err) => {
+          assert.equal(err, 'Error: Failed to load pwnedpasswords API: 500')
+          done()
+          nockDone()
+        }))
     })
   })
 
