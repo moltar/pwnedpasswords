@@ -64,7 +64,7 @@ pwnedpasswords('password', (err, count) => {
 It is not recommended to use this command with real passwords, as you are exposing the password to the process list and shell history. But this can be used for testing and educational scenarios or in other shell scripts.
 
 ```sh
-$> ./node_modules/.bin/pwnedpasswords
+$> ./node_modules/.bin/pwnedpasswords password
 3730471
 ```
 
