@@ -1,7 +1,7 @@
 # pwnedpasswords
 
-[![Travis](https://travis-ci.org/moltar/pwnedpasswords.svg?branch=master)]()
-[![npm](https://img.shields.io/npm/dm/pwnedpasswords.svg)]()
+[![Travis](https://travis-ci.org/moltar/pwnedpasswords.svg?branch=master)](https://travis-ci.org/moltar/pwnedpasswords)
+[![npm](https://img.shields.io/npm/dm/pwnedpasswords.svg)](https://www.npmjs.com/package/pwnedpasswords)
 [![Known Vulnerabilities](https://snyk.io/test/npm/pwnedpasswords/badge.svg)](https://snyk.io/test/npm/pwnedpasswords)
 
 A dependency-free [Node.js module](https://www.npmjs.com/package/pwnedpasswords) for interfacing with the [PwnedPasswords API](https://haveibeenpwned.com/API/v2#PwnedPasswords) by [Troy Hunt](https://www.troyhunt.com/) ([haveibeenpwned.com](https://haveibeenpwned.com/)).
