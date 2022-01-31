@@ -11,6 +11,7 @@ const https = require('https')
 // Number of characters from the hash that API expects
 const PREFIX_LENGTH = 5
 const API_URL = 'https://api.pwnedpasswords.com/range/'
+const API_TIMEOUT = 5000
 const HTTP_STATUS_OK = 200
 const HTTP_STATUS_NOT_FOUND = 404
 
@@ -53,8 +54,12 @@ function hash (password) {
 }
 
 function get (hashedPasswordPrefix) {
+  const opts = {
+    timeout: API_TIMEOUT,
+  }
+
   return new Promise((resolve, reject) => {
-    https.get(API_URL + hashedPasswordPrefix, (res) => {
+    const req = https.get(API_URL + hashedPasswordPrefix, opts, (res) => {
       let data = ''
 
       // According to API spec, 404 is returned when no hash found, so it is a valid response.
@@ -73,6 +78,9 @@ function get (hashedPasswordPrefix) {
       return true
     }).on('error', (err) => {
       reject(err)
+    }).on('timeout', () => {
+      req.destroy()
+      reject('pwnedpassword API timeout')
     })
   })
 }
