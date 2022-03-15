@@ -7,7 +7,7 @@
     "description": "A wrapper for PwnedPasswords API by Troy Hunt (haveibeenpwned.com).",
     "devDependencies": {
         "mocha": "9.2.2",
-        "nock": "13.0.2"
+        "nock": "13.2.4"
     },
     "homepage": "https://github.com/moltar/pwnedpasswords",
     "repository": {
